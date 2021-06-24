@@ -1,15 +1,18 @@
-import myFunc from "../index";
-import arrays from "../utilities/arrays";
-import numbers from "../utilities/numbers";
-import strings from "../utilities/strings";
+import newArr from "../index";
 
-const numArr = [3, 4, 5, 6];
-const wordArr = ['cat', 'dog', 'rabbit', 'bird'];
+describe("newArr should add a new number to the start of array", () => {
+  const wordArr = ["cat", "dog", "rabbit", "bird"];
 
-it("expect myFunc(5) to equal 25", () => {
-  expect(myFunc(5)).toEqual(25);
+  it("should make a new array containing dog", () => {
+    expect(newArr(3, wordArr)).toContain("dog");
+  });
+
+  it("make a new array containing 3", () => {
+    expect(newArr(3, wordArr)).toContain(3);
+  });
 });
 
+/*
 it ('should capitalize a string', () => {
     expect(strings.capitalize('a sentence')).toEqual('A Sentence');
 });
@@ -37,3 +40,4 @@ it ('should not contain the third index', () => {
 it ('should not have a large number and be falsy', () => {
     expect(arrays.lgNum(wordArr)).toBeFalsy();
 });
+*/

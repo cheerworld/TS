@@ -4,41 +4,41 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var index_1 = __importDefault(require("../index"));
-var arrays_1 = __importDefault(require("../utilities/arrays"));
-var numbers_1 = __importDefault(require("../utilities/numbers"));
-var strings_1 = __importDefault(require("../utilities/strings"));
-it("expect myFunc(5) to equal 25", function () {
-    expect(index_1.default(5)).toEqual(25);
-});
-it("expect addArr([1,2,3,4]) to be 10", function () {
-    expect(arrays_1.default.addArr([1, 2, 3, 4])).toBe(10);
-});
-it("expect concatArr([3, 4, 5, 6], ['cat', 'dog', 'rabbit', 'bird']) to have size 8", function () {
-    expect(arrays_1.default.concatArr([3, 4, 5, 6], ['cat', 'dog', 'rabbit', 'bird'])).toHaveSize(8);
-});
-it("expect cut3([1,2,3,4]).length to be less than or equal 3", function () {
-    expect(arrays_1.default.cut3([1, 2, 3, 4]).length).toBeLessThanOrEqual(3);
-});
-it("expect sum(1.1,1) to be close to 2", function () {
-    expect(numbers_1.default.sum(1.1, 1)).toBeCloseTo(2, 0);
-});
-it("expect capitalize('the quick brown fox') to be 'The Quick Brown Fox'", function () {
-    expect(strings_1.default.capitalize('the quick brown fox')).toBe('The Quick Brown Fox');
-});
-it("exepct multiple(4,0) to equal 0", function () {
-    expect(numbers_1.default.multiply(4, 0)).toEqual(0);
+describe("newArr should add a new number to the start of array", function () {
+    var wordArr = ["cat", "dog", "rabbit", "bird"];
+    it("should make a new array containing dog", function () {
+        expect(index_1.default(3, wordArr)).toContain("dog");
+    });
+    it("make a new array containing 3", function () {
+        expect(index_1.default(3, wordArr)).toContain(3);
+    });
 });
 /*
-const lgNum = (arr: (string | number)[]): number => {
-    let largest = 0 as number;
-    arr.forEach((x) => {
-      if (x > largest) {
-        largest = x as number;
-      }
-    });
-    return largest;
-  };
-*/
-it("expect lgNum([3, 4, 5, 6, 'cat', 'dog', 'rabbit', 'bird']) to be greater than or equal 6", function () {
-    expect(arrays_1.default.lgNum([3, 4, 5, 6, 'cat', 'dog', 'rabbit', 'bird'])).toBeGreaterThanOrEqual(6);
+it ('should capitalize a string', () => {
+    expect(strings.capitalize('a sentence')).toEqual('A Sentence');
 });
+
+it ('should be a sum greater than 10', () => {
+    expect(numbers.sum(3,10)).toBeGreaterThan(10);
+});
+
+it ('multiply 3 by 5 and be 15', () => {
+    expect(numbers.multiply(3,5)).toEqual(15);
+});
+
+it ('should add numbers in array and be truthy', () => {
+    expect(arrays.addArr(numArr)).toBeTruthy();
+});
+
+it ('should concatenate 2 arrays to not equal just 1', () => {
+    expect(arrays.concatArr(numArr, wordArr)).not.toEqual(numArr);
+});
+
+it ('should not contain the third index', () => {
+    expect(arrays.cut3(wordArr)).not.toContain('rabbit');
+});
+
+it ('should not have a large number and be falsy', () => {
+    expect(arrays.lgNum(wordArr)).toBeFalsy();
+});
+*/
