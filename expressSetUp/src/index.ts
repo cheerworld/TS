@@ -1,10 +1,21 @@
 import express from "express";
-import routes from "./routes/index";
+import logger from "./utilities/logger";
+//import routes from "./routes/index";
 
 const app = express();
 const port = 3000;
 
-app.use("/api", routes);
+app.get("/human", logger, (req, res) => {
+  res.send("Hello human");
+});
+
+app.get("/dog", logger, (req, res) => {
+  res.send("Hello dog");
+});
+
+app.get("/cat", (req, res) => {
+  res.send("Hello cat");
+});
 
 app.listen(port, () => {
   console.log(`server started at http://localhost:${port}`);
